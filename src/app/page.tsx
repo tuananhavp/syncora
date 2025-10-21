@@ -1,15 +1,14 @@
-import prisma from "@/lib/prisma";
-
+import { HydrateClient, trpc } from "@/trpc/sever";
+import { Client } from "./Client";
+import { requireAuth } from "@/lib/auth-utils";
 export default async function Home() {
-  const listUsers = await prisma.user.findMany();
-
+  await requireAuth();
+  void trpc.getUsers.prefetch();
   return (
-    <div className="font-sans text-2xl text-yellow-400 font-extrabold hover:text-purple-400">
-      {listUsers.map((user) => (
-        <p key={user.id}>
-          {user.id} - {user.name} - {user.email}
-        </p>
-      ))}
-    </div>
+    <HydrateClient>
+      <div>...</div>
+      {/** ... */}
+      <Client />
+    </HydrateClient>
   );
 }
