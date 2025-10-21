@@ -1,7 +1,9 @@
 import Login from "@/features/auth/login";
+import { requireUnAuth } from "@/lib/auth-utils";
 import React from "react";
 
-const page = () => {
+const page = async () => {
+  await requireUnAuth();
   return <Login></Login>;
 };
 
