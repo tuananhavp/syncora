@@ -76,105 +76,96 @@ const Register = () => {
     );
   };
   return (
-    <div className="flex justify-center align-middle min-h-screen">
-      <div className="flex justify-center items-center min-w-md">
-        <Card className="w-full p-4 shadow-lg">
-          <CardHeader className="text-center">
-            <CardTitle className="text-xl ">Let's get you started</CardTitle>
-            <CardDescription>Enter your email below to create a new account</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="flex gap-4 mb-4">
-              <Button
-                className="flex-1 border-2"
-                variant="outline"
-                type="submit"
-                disabled={isSubmitting}
-              >
-                <Image src="google.svg" alt="Google" width={12} height={12} /> Google
-              </Button>
+    <Card className="w-full p-4 shadow-lg">
+      <CardHeader className="text-center">
+        <CardTitle className="text-xl ">Let's get you started</CardTitle>
+        <CardDescription>Enter your email below to create a new account</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="flex gap-4 mb-4">
+          <Button
+            className="flex-1 border-2"
+            variant="outline"
+            type="submit"
+            disabled={isSubmitting}
+          >
+            <Image src="google.svg" alt="Google" width={12} height={12} /> Google
+          </Button>
 
-              <Button
-                className="flex-1 bg-[#0d1117]"
-                variant="default"
-                type="submit"
-                disabled={isSubmitting}
-              >
-                <Github /> Github
-              </Button>
-            </div>
-            <Form {...form}>
-              <form onSubmit={handleSubmit(onSubmit)} className="grid gap-6">
-                <FormField
-                  control={control}
-                  name="email"
-                  render={({ field: { onChange } }) => {
-                    return (
-                      <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Email" type="email" onChange={onChange} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    );
-                  }}
-                ></FormField>
+          <Button
+            className="flex-1 bg-[#0d1117]"
+            variant="default"
+            type="submit"
+            disabled={isSubmitting}
+          >
+            <Github /> Github
+          </Button>
+        </div>
+        <Form {...form}>
+          <form onSubmit={handleSubmit(onSubmit)} className="grid gap-6">
+            <FormField
+              control={control}
+              name="email"
+              render={({ field: { onChange } }) => {
+                return (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Email" type="email" onChange={onChange} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
+            ></FormField>
 
-                <FormField
-                  control={control}
-                  name="password"
-                  render={({ field: { onChange } }) => {
-                    return (
-                      <FormItem>
-                        <FormLabel>Password</FormLabel>
-                        <FormControl>
-                          <Input placeholder="*********" type="password" onChange={onChange} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    );
-                  }}
-                ></FormField>
+            <FormField
+              control={control}
+              name="password"
+              render={({ field: { onChange } }) => {
+                return (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <Input placeholder="*********" type="password" onChange={onChange} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
+            ></FormField>
 
-                <FormField
-                  control={control}
-                  name="confirmPassword"
-                  render={({ field: { onChange } }) => {
-                    return (
-                      <FormItem>
-                        <FormLabel>Confirm Password</FormLabel>
-                        <FormControl>
-                          <Input placeholder="*********" type="password" onChange={onChange} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    );
-                  }}
-                ></FormField>
-                <Button
-                  variant={"outline"}
-                  type="submit"
-                  className="shadow-md"
-                  disabled={isSubmitting}
-                >
-                  Register
-                </Button>
-              </form>
-              <FormMessage />
-            </Form>
-          </CardContent>
-          <CardFooter className="flex justify-center items-center">
-            <CardDescription>
-              Already have an account?{"   "}
-              <Link href="/login" className="text-blue-600">
-                Log in
-              </Link>
-            </CardDescription>
-          </CardFooter>
-        </Card>
-      </div>
-    </div>
+            <FormField
+              control={control}
+              name="confirmPassword"
+              render={({ field: { onChange } }) => {
+                return (
+                  <FormItem>
+                    <FormLabel>Confirm Password</FormLabel>
+                    <FormControl>
+                      <Input placeholder="*********" type="password" onChange={onChange} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
+            ></FormField>
+            <Button variant={"default"} type="submit" className="shadow-md" disabled={isSubmitting}>
+              Register
+            </Button>
+          </form>
+          <FormMessage />
+        </Form>
+      </CardContent>
+      <CardFooter className="flex justify-center items-center">
+        <CardDescription>
+          Already have an account?{"   "}
+          <Link href="/login" className="text-blue-600">
+            Log in
+          </Link>
+        </CardDescription>
+      </CardFooter>
+    </Card>
   );
 };
 
